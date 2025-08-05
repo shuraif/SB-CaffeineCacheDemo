@@ -4,6 +4,7 @@ import com.ms.caching.modal.CachingRequest;
 import com.ms.caching.service.AppService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,16 @@ public class CachingController {
   @Autowired
   AppService cachingService;
 
+  @Value("${injected.encrypted.secret}")
+  String secret;
+
+  @GetMapping("/caching/secret")
+  public String getSecret() {
+    return secret;
+  }
+
+
+
   @PostMapping("/caching/post")
   public String put(HttpServletRequest request,@RequestBody CachingRequest cachingRequest) {
     return cachingService.insertToCache(cachingRequest);
@@ -25,4 +36,6 @@ public class CachingController {
   public String get(HttpServletRequest request, @PathVariable String requestId) {
     return cachingService.getFromCache(requestId);
   }
+
+
 }

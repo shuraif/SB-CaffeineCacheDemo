@@ -3,3 +3,11 @@ spring:
     type: caffeine
     caffeine:
         spec: maximumSize=1000,expireAfterWrite=10m
+
+injected:
+  encrypted:
+    secret: ENC(DPcyUbBAWyZqfW+4O2sTzQZKFy6/vb3FeKJltiX58/17B86wxERmOwu200BBwKp/ijoFiB3ospLRIVEiwk+aMQ==)
+
+jasypt:
+  encryptor:
+    password: your_main_password

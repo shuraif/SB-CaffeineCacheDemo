@@ -1,0 +1,10 @@
+mvn jasypt:encrypt-value \
+  -Djasypt.encryptor.password=your_main_password \
+  -Djasypt.plugin.value=db_password_to_encrypt \
+
+
+
+
+mvn jasypt:decrypt-value \
+  -Djasypt.encryptor.password=your_main_password \
+  -Djasypt.plugin.value=DPcyUbBAWyZqfW+4O2sTzQZKFy6/vb3FeKJltiX58/17B86wxERmOwu200BBwKp/ijoFiB3ospLRIVEiwk+aMQ== \
